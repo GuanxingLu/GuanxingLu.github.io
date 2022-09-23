@@ -131,6 +131,10 @@ name {
   background-color: white;
 }
 
+.spoiler:hover{
+  color: white;
+  }
+
 span.highlight {
   background-color: #ffffd0;
 }
