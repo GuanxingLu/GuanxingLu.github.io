@@ -126,6 +126,11 @@ name {
   -webkit-transition: opacity .2s ease-in-out;
 }
 
+.spoiler{
+  color: white;
+  background-color: white;
+}
+
 span.highlight {
   background-color: #ffffd0;
 }
