@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+  <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://guanxinglu.github.io/">Guanxing Lu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Shiyi Zhang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.cs.cmu.edu/~cliu6/">Changliu Liu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://ivg.au.tsinghua.edu.cn/Jiwen_Lu/">Jiwen Lu</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://andytang15.github.io/">Yansong Tang</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Tsinghua Shenzhen International Graduate School, Tsinghua University,</span>
+            <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>
+            <span class="author-block"><sup>3</sup>Department of Automation, Tsinghua University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.07062"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- teaser png -->
+<!-- <section class="section"> -->
+  <!-- <div class="container is-max-desktop"> -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width"> -->
+<div class="content has-text-centered">
+  <img src="./static/images/thinkbot_teaser.png"
+        alt="ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation"
+        width="40%">
+</div>
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+
+<!-- tl;dr -->
+<!-- <section class="section"> -->
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content">
+          <h2 class="subtitle"><strong>tl:dr</strong></h2>
+          <ul style="list-style-type: disc; margin-left: 20px;">
+            <li>We propose a Thinkbot agent that reasons the thought chain in sparse human instruction for coherence mining to successfully complete complex EIF goals.</li>
+            <li>We present an instruction completer based on large language models to generate the missing actions with interacted objects, and propose an object localizer to predict the position of objects for interaction.</li>
+            <li>We conduct extensive experiments of diverse EIF tasks on ALFRED benchmark, and the results demonstrate that our method achieves higher success rate and path-length-weighted success rate than the state-of-the-art methods on unseen environments.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Embodied Instruction Following (EIF) requires agents to complete human instruction by interacting objects in complicated surrounding environments. Conventional methods directly consider the sparse human instruction to generate action plans for agents, which usually fail to achieve human goals because of the instruction incoherence in action descriptions. On the contrary, we propose <b>ThinkBot</b> that reasons the thought chain in human instruction to recover the missing action descriptions, so that the agent can successfully complete human goals by following the coherent instruction. Specifically, we first design an instruction completer based on large language models to recover the missing actions with interacted objects between consecutive human instruction, where the perceived surrounding environments and the completed sub-goals are considered for instruction completion. Based on the partially observed scene semantic maps, we present an object localizer to infer the position of interacted objects for agents to achieve complex human goals. Extensive experiments in the simulated environment show that our ThinkBot outperforms the state-of-the-art EIF methods by a sizable margin in both success rate and execution efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Main text. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Pipeline</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            The overall pipeline of ThinkBot, which consists of an instruction completer and an object localizer. The instruction completer generates the coherent instruction with interacted objects based on sparse human instruction and the current visual perception results, and the object localizer predicts the position of the interacted object for manipulation and navigation.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/pipeline_v4.png"
+               alt="Pipeline"
+               width="80%">
+        <br/>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            For the simulation of EIF tasks, we utilize the well-recognized ALFRED benchmark \cite{shridhar2020alfred}. The benchmark is divided into five splits including train, test seen, test unseen, valid seen and valid unseen. The ALFRED benchmark poses significant challenges for EIF agents, as it requires them to ground incoherent natural instruction of different granularity into various household tasks that involve long-horizon reasoning plans.
+          </p>
+          <p>
+            Comparison with the state-of-the-art methods in SR, GC, PLWSR, PLWGC on the test seen and test unseen splits.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/main_comparison.png"
+               alt="Pipeline"
+               width="80%">
+        <br/>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Visualization</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Visualization of the agent action sequence acquired by Prompter+ (top) and our ThinkBot (bottom), where our method can recover the missing actions with interacted instances `Open Fridge' and `Open Cabinet' to successfully achieve the human goal.
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/quali_a_sequence_v3.png"
+               alt="Pipeline"
+               width="80%">
+        <br/>
+
+        <!-- local video -->
+        <div class="content has-text-justified">
+          <p>
+            We also provide a comprehensive trial selected from the valid unseen split.
+        </div>
+        <div class="publication-video">
+          <video controls width="80%">
+            <source src="./static/videos/demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="#">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/GuanxingLu" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
