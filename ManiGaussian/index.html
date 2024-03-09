@@ -86,7 +86,7 @@
                 </a>
               </span> -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2312.07062"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -138,7 +138,7 @@
     <!-- <div class="columns is-centered">
       <div class="column is-full-width"> -->
 <div class="content has-text-centered">
-  <img src="./static/images/thinkbot_teaser.png"
+  <img src="./static/images/ManiGaussian_teaser.png"
         alt="ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation"
         width="40%">
 </div>
@@ -154,9 +154,9 @@
         <div class="content">
           <h2 class="subtitle"><strong>tl:dr</strong></h2>
           <ul style="list-style-type: disc; margin-left: 20px;">
-            <li>We propose a Thinkbot agent that reasons the thought chain in sparse human instruction for coherence mining to successfully complete complex EIF goals.</li>
-            <li>We present an instruction completer based on large language models to generate the missing actions with interacted objects, and propose an object localizer to predict the position of objects for interaction.</li>
-            <li>We conduct extensive experiments of diverse EIF tasks on ALFRED benchmark, and the results demonstrate that our method achieves higher success rate and path-length-weighted success rate than the state-of-the-art methods on unseen environments.</li>
+            <li>We propose a dynamic Gaussian Splatting framework to learn the scene-level spatiotemporal dynamics in general robotic manipulation tasks, so that the robotic agent can complete human instructions with accurate action prediction in unstructured environments.</li>
+            <li>We build a Gaussian world model to parameterize distributions in our dynamic Gaussian Splatting framework, which can provide informative supervision to learn scene dynamics from the interactive environment.</li>
+            <li>We conduct extensive experiments of 10 tasks on RLBench, and the results demonstrate that our method achieves a higher success rate than the state-of-the-art methods with less computation.</li>
           </ul>
         </div>
       </div>
@@ -173,7 +173,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Embodied Instruction Following (EIF) requires agents to complete human instruction by interacting objects in complicated surrounding environments. Conventional methods directly consider the sparse human instruction to generate action plans for agents, which usually fail to achieve human goals because of the instruction incoherence in action descriptions. On the contrary, we propose <b>ThinkBot</b> that reasons the thought chain in human instruction to recover the missing action descriptions, so that the agent can successfully complete human goals by following the coherent instruction. Specifically, we first design an instruction completer based on large language models to recover the missing actions with interacted objects between consecutive human instruction, where the perceived surrounding environments and the completed sub-goals are considered for instruction completion. Based on the partially observed scene semantic maps, we present an object localizer to infer the position of interacted objects for agents to achieve complex human goals. Extensive experiments in the simulated environment show that our ThinkBot outperforms the state-of-the-art EIF methods by a sizable margin in both success rate and execution efficiency.
+            Performing language-conditioned robotic manipulation tasks in unstructured environments is highly demanded for general intelligent robots. Conventional robotic manipulation methods usually learn semantic representation of the observation for action prediction, which ignores the scene-level spatiotemporal dynamics for human goal completion. In this paper, we propose a dynamic Gaussian Splatting method named <strong>ManiGaussian</strong> for multi-task robotic manipulation, which mines scene dynamics via future scene reconstruction. Specifically, we first formulate the dynamic Gaussian Splatting framework that infers the semantics propagation in the Gaussian embedding space, where the semantic representation is leveraged to predict the optimal robot action. Then, we build a Gaussian world model to parameterize the distribution in our dynamic Gaussian Splatting framework, which provides informative supervision in the interactive environment via future scene reconstruction. We evaluate our ManiGaussian on 10 RLBench tasks with 166 variations, and the results demonstrate our framework can outperform the state-of-the-art methods by 13.1 in average success rate.
           </p>
         </div>
       </div>
@@ -205,7 +205,7 @@
 
         <div class="content has-text-justified">
           <p>
-            The overall pipeline of ThinkBot, which consists of an instruction completer and an object localizer. The instruction completer generates the coherent instruction with interacted objects based on sparse human instruction and the current visual perception results, and the object localizer predicts the position of the interacted object for manipulation and navigation.
+            The overall pipeline of ManiGaussian, which primarily consists of a dynamic Gaussian Splatting framework and a Gaussian world model. The dynamic Gaussian Splatting framework models the propagation of diverse semantic features in the Gaussian embedding space for manipulation, and the Gaussian world model parameterizes distributions to provide supervision by reconstructing the future scene for scene-level dynamics mining.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -219,7 +219,7 @@
   </div>
 </section>
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
@@ -276,20 +276,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
 </section> -->
-
 
 <footer class="footer">
   <div class="container">
