@@ -123,6 +123,41 @@
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+          <!-- AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation -->
+          <tr onmouseout="nerv_stop()" onmouseover="nerv_start()" bgcolor="#FFFACD">
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='nerv_image'><video  width="230" height="130" muted autoplay loop>
+                <source src="images/anybimanual.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='images/anybimanual.png' alt="clean-usnob" width="230" height="130">
+              </div>
+              <script type="text/javascript">
+                function nerv_start() {
+                  document.getElementById('nerv_image').style.opacity = "1";
+                }
+                function nerv_stop() {
+                  document.getElementById('nerv_image').style.opacity = "0";
+                }
+                nerv_stop()
+              </script>
+            </td>
+            <!-- <td style="padding:20px;width:25%;vertical-align:middle"> -->
+            <td width="75%" valign="middle">
+              <papertitle>AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation</papertitle>
+              <br>
+              <strong>Guanxing Lu</strong><sup>*</sup>, <a href="https://github.com/Tengbo-Yu">Tengbo Yu<sup>*</sup></a>, <a href="https://github.com/Denghaoyuan123?tab=repositories">Haoyuan Deng</a>, <a href="https://www.sigs.tsinghua.edu.cn/Chensi_en/main.htm">Season Si Chen</a>, <a href="https://andytang15.github.io/">Yansong Tang<sup>†</sup></a>, <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a>.
+              <br>
+              <em>Preprint 2024</em>
+              <br>
+              <a href="https://anybimanual.github.io/">[project page]</a> &nbsp/&nbsp
+              <a href="https://arxiv.org/abs/2412.06779">[arxiv]</a> &nbsp/&nbsp
+              <a href="https://github.com/TengBoYu01/AnyBimanual">[code]</a>
+              <p>A simple yet effective training framework that transfers any pretrained unimanual robotic manipulation policy to multi-task bimanual manipulation policy.</p>
+            </td>
+          </tr>
+
           <!-- ManiCM: Real-time 3D Diffusion Policy via Consistency Model for Robotic Manipulation -->
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -131,7 +166,7 @@
             <td width="75%" valign="middle">
               <papertitle>ManiCM: Real-time 3D Diffusion Policy via Consistency Model for Robotic Manipulation</papertitle>
               <br>
-              <strong>Guanxing Lu</strong>*, Zifeng Gao*, <a href="https://tianxingchen.github.io">Tianxing Chen</a>, <a href="https://github.com/Dai-Wenxun">Wenxun Dai</a>, <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a>, and <a href="https://andytang15.github.io/">Yansong Tang</a>.
+              <strong>Guanxing Lu</strong><sup>*</sup>, Zifeng Gao<sup>*</sup>, <a href="https://tianxingchen.github.io">Tianxing Chen</a>, <a href="https://github.com/Dai-Wenxun">Wenxun Dai</a>, <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a>, and <a href="https://andytang15.github.io/">Yansong Tang</a>.
               <br>
               <em>Preprint 2024</em>
               <br>
@@ -197,8 +232,7 @@
               <br>
               <a href="https://arxiv.org/pdf/2205.10481">[arxiv]</a> &nbsp/&nbsp
               <a href="https://github.com/GuanxingLu/Subspace-Clustering">[code]</a>
-              <p>We proposed a novel semi-supervised subspace clustering method, which can simultaneously augment the initial supervisory information and construct a discriminative affinity matrix by leveraging their identical global low-rank
-structure.</p>
+              <p>We proposed a novel semi-supervised subspace clustering method, which can simultaneously augment the initial supervisory information and construct a discriminative affinity matrix by leveraging their identical global low-rank structure.</p>
             </td>
           </tr>
 
@@ -252,7 +286,7 @@ structure.</p>
         </tr>
       </tbody></table>
 
-      <p align="center"> © 2022-2024 <a href="https://guanxinglu.github.io/">Guanxing Lu</a>. Last updated: Aug. 2, 2024. </p>
+      <p align="center"> © 2022-2025 <a href="https://guanxinglu.github.io/">Guanxing Lu</a>. Last updated: Dec. 29, 2024. </p>
 <!--          <span style="spoiler">Quo vadis?</span>-->
       <span style="color: white; background: white;">踏平坎坷成大道，斗罢艰险又出发。</span>
       </td>
