@@ -107,31 +107,62 @@
         
         /* Publication styling */
         .publication {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
         }
         
-        .publication img, .publication video {
+        .publication-thumbnail {
+            width: 150px;  /* Fixed width */
+            min-height: 100px;  /* Minimum height */
+            max-height: 150px; /* Maximum height */
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;  /* Added margin to move thumbnails slightly down */
+        }
+        
+        .publication-thumbnail video {
             width: 100%;
-            max-width: 230px;
-            height: auto;
+            height: 150px;  /* Fixed height for videos */
+            object-fit: cover;
+        }
+        
+        .publication-thumbnail img {
+            width: 100%;
+            height: auto;  /* Auto height for images */
+            display: block;
+        }
+        
+        .publication-content {
+            flex: 1;
+        }
+        
+        .publication-content h3 {
+            margin-top: 0;
             margin-bottom: 10px;
-        }
-        
-        .publication h3 {
+            font-size: 1.2em;
             color: #333;
-            margin-top: 25px;
         }
         
-        .publication p {
-            margin: 6px 0;
+        .publication-content p {
+            margin: 8px 0;
+            line-height: 1.4;
         }
         
-        .publication p strong {
-            color: #000;
+        .publication.highlight {
+            background: linear-gradient(to right, rgba(240, 248, 255, 0.8), rgba(255, 255, 255, 0.9));
+            margin: 0 -20px 30px -20px;  /* Negative margin to align with container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         
-        .publication p em {
-            color: #666;
+        .publication.highlight:hover {
+            background: linear-gradient(to right, rgba(230, 240, 255, 0.9), rgba(255, 255, 255, 0.95));
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         /* Profile section styling */
@@ -142,22 +173,6 @@
             margin: 20px auto;
             display: block;
             border-radius: 8px;
-        }
-        
-        /* Add highlight styling for featured publications */
-        .publication.highlight {
-            background: linear-gradient(to right, rgba(240, 248, 255, 0.8), rgba(255, 255, 255, 0.9));  /* Light blue gradient */
-            border-radius: 8px;
-            padding: 20px;
-            margin: -20px;  /* Compensate for padding */
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .publication.highlight:hover {
-            background: linear-gradient(to right, rgba(230, 240, 255, 0.9), rgba(255, 255, 255, 0.95));
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
     </style>
     <!-- Add Font Awesome -->
@@ -219,72 +234,94 @@
         
         <!-- AnyBimanual -->
         <div class="publication highlight">
-            <h3>AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation</h3>
-            <video width="230" height="130" muted autoplay loop>
-                <source src="images/anybimanual_v2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p><strong>Guanxing Lu</strong><sup>*</sup>, Tengbo Yu<sup>*</sup>, Haoyuan Deng, Season Si Chen, Yansong Tang<sup>†</sup>, Ziwei Wang.</p>
-            <p><em>Preprint 2024</em></p>
-            <p><a href="https://anybimanual.github.io/">project page</a> / 
-               <a href="https://arxiv.org/abs/2412.06779">arxiv</a> / 
-               <a href="https://github.com/TengBoYu01/AnyBimanual">code</a></p>
-            <p>A simple yet effective training framework that transfers any pretrained unimanual robotic manipulation policy to multi-task bimanual manipulation policy.</p>
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/anybimanual_v2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation</h3>
+                <p><strong>Guanxing Lu</strong><sup>*</sup>, Tengbo Yu<sup>*</sup>, Haoyuan Deng, Season Si Chen, Yansong Tang<sup>†</sup>, Ziwei Wang</p>
+                <p><em>Preprint 2024</em></p>
+                <p>
+                    <a href="https://anybimanual.github.io/">project page</a> /
+                    <a href="https://arxiv.org/abs/2412.06779">arxiv</a> /
+                    <a href="https://github.com/TengBoYu01/AnyBimanual">code</a>
+                </p>
+            </div>
         </div>
 
         <!-- ManiCM -->
         <div class="publication">
-            <h3>ManiCM: Real-time 3D Diffusion Policy via Consistency Model for Robotic Manipulation</h3>
-            <!-- <img src="images/ManiCM_teaser.png" alt="ManiCM" width="230" height="100"> -->
-            <video width="230" height="130" muted autoplay loop>
-                <source src="images/manicm.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p><strong>Guanxing Lu</strong><sup>*</sup>, Zifeng Gao<sup>*</sup>, Tianxing Chen, Wenxun Dai, Ziwei Wang, and Yansong Tang.</p>
-            <p><em>Preprint 2024</em></p>
-            <p><a href="https://manicm-fast.github.io/">project page</a> / 
-               <a href="https://arxiv.org/abs/2406.01586">arxiv</a> / 
-               <a href="https://github.com/ManiCM-fast/ManiCM">code</a></p>
-            <p>We propose a real-time point cloud-conditioned diffusion model named ManiCM for robotic manipulation that imposes the consistency constraint to the diffusion process, so that the model can generate robot actions in only one-step inference.</p>
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/manicm.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>ManiCM: Real-time 3D Diffusion Policy via Consistency Model for Robotic Manipulation</h3>
+                <p><strong>Guanxing Lu</strong><sup>*</sup>, Zifeng Gao<sup>*</sup>, Tianxing Chen, Wenxun Dai, Ziwei Wang, and Yansong Tang</p>
+                <p><em>Preprint 2024</em></p>
+                <p>
+                    <a href="https://manicm-fast.github.io/">project page</a> /
+                    <a href="https://arxiv.org/abs/2406.01586">arxiv</a> /
+                    <a href="https://github.com/ManiCM-fast/ManiCM">code</a>
+                </p>
+            </div>
         </div>
 
         <!-- ManiGaussian -->
         <div class="publication highlight">
-            <h3>ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation</h3>
-            <!-- <img src="images/ManiGaussian_teaser.png" alt="ManiGaussian" width="230" height="100"> -->
-            <video width="230" height="130" muted autoplay loop>
-                <source src="images/manigaussian.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p><strong>Guanxing Lu</strong>, Shiyi Zhang, Ziwei Wang, Changliu Liu, Jiwen Lu and Yansong Tang.</p>
-            <p><em>ECCV 2024</em></p>
-            <p><a href="https://guanxinglu.github.io/ManiGaussian">project page</a> / 
-               <a href="https://arxiv.org/abs/2403.08321">arxiv</a> / 
-               <a href="https://github.com/GuanxingLu/ManiGaussian">code</a> / 
-               <a href="https://zhuanlan.zhihu.com/p/708538384">中文解读</a></p>
-            <p>We propose a dynamic Gaussian Splatting method named ManiGaussian for multi-task robotic manipulation, which mines scene dynamics via future scene reconstruction.</p>
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/manigaussian.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation</h3>
+                <p><strong>Guanxing Lu</strong>, Shiyi Zhang, Ziwei Wang, Changliu Liu, Jiwen Lu and Yansong Tang</p>
+                <p><em>ECCV 2024</em></p>
+                <p>
+                    <a href="https://guanxinglu.github.io/ManiGaussian">project page</a> /
+                    <a href="https://arxiv.org/abs/2403.08321">arxiv</a> /
+                    <a href="https://github.com/GuanxingLu/ManiGaussian">code</a> /
+                    <a href="https://zhuanlan.zhihu.com/p/708538384">中文解读</a>
+                </p>
+            </div>
         </div>
 
         <!-- ThinkBot -->
         <div class="publication">
-            <h3>ThinkBot: Embodied Instruction Following with Thought Chain Reasoning</h3>
-            <img src="images/thinkbot_eccv_teaser.png" alt="ThinkBot" width="230" height="80">
-            <p><strong>Guanxing Lu</strong>, Ziwei Wang, Changliu Liu, Jiwen Lu and Yansong Tang.</p>
-            <p><em>ICLR 2025</em></p>
-            <p><a href="https://guanxinglu.github.io/thinkbot">project page</a> / 
-               <a href="https://arxiv.org/abs/2312.07062">arxiv</a></p>
-            <p>In this paper, we have presented a ThinkBot agent that reasons the thought chain for missing instruction recovery in embodied instruction following (EIF) tasks.</p>
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/thinkbot.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>ThinkBot: Embodied Instruction Following with Thought Chain Reasoning</h3>
+                <p><strong>Guanxing Lu</strong>, Ziwei Wang, Changliu Liu, Jiwen Lu and Yansong Tang</p>
+                <p><em>ICLR 2025</em></p>
+                <p>
+                    <a href="https://guanxinglu.github.io/thinkbot">project page</a> /
+                    <a href="https://arxiv.org/abs/2312.07062">arxiv</a>
+                </p>
+            </div>
         </div>
 
         <!-- Semi-Supervised Subspace Clustering -->
         <div class="publication">
-            <h3>Semi-Supervised Subspace Clustering via Tensor Low-Rank Representation</h3>
-            <img src="images/semi-supervised-subspace-clustering.png" alt="Subspace Clustering" width="230" height="100">
-            <p>Yuheng Jia, <strong>Guanxing Lu</strong>, Hui Liu and Junhui Hou.</p>
-            <p><em>IEEE TCSVT 2023</em></p>
-            <p><a href="https://arxiv.org/pdf/2205.10481">arxiv</a> / 
-               <a href="https://github.com/GuanxingLu/Subspace-Clustering">code</a></p>
-            <p>We proposed a novel semi-supervised subspace clustering method, which can simultaneously augment the initial supervisory information and construct a discriminative affinity matrix by leveraging their identical global low-rank structure.</p>
+            <div class="publication-thumbnail">
+                <img src="images/semi-supervised-subspace-clustering.png" alt="Subspace Clustering">
+            </div>
+            <div class="publication-content">
+                <h3>Semi-Supervised Subspace Clustering via Tensor Low-Rank Representation</h3>
+                <p>Yuheng Jia, <strong>Guanxing Lu</strong>, Hui Liu and Junhui Hou</p>
+                <p><em>IEEE TCSVT 2023</em></p>
+                <p>
+                    <a href="https://arxiv.org/pdf/2205.10481">arxiv</a> /
+                    <a href="https://github.com/GuanxingLu/Subspace-Clustering">code</a>
+                </p>
+            </div>
         </div>
     </div>
     
