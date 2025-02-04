@@ -422,7 +422,7 @@
         arm2.add(gripper);
 
         // Camera position
-        camera.position.set(10, 5, 10); // Adjust these values as needed
+        camera.position.set(10, 10, 10); // Adjust these values as needed
         camera.lookAt(0, 0, 0); // Ensure the camera is looking at the center of the scene
 
         // Hyper-parameters
@@ -485,13 +485,21 @@
         let cubePhysicsStates = []; // Array to store physics states for each cube
 
         // Add these constants for scene boundaries
+        // const SCENE_BOUNDS = {
+        //     minX: -20,
+        //     maxX: 20,
+        //     minY: -10,
+        //     maxY: 20,
+        //     minZ: -20,
+        //     maxZ: 20
+        // };
         const SCENE_BOUNDS = {
-            minX: -20,
-            maxX: 20,
-            minY: -10,
-            maxY: 20,
-            minZ: -20,
-            maxZ: 20
+            minX: -11,
+            maxX: 11,
+            minY: -5,
+            maxY: 10,
+            minZ: -11,
+            maxZ: 11
         };
 
         // Add this function to check if a cube is out of bounds

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Robot Arm Simulation</title>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="baidu-site-verification" content="code-LVoSk3O7dT" />
+    <meta name="google-site-verification" content="IO6wWmz-PlovTXvlyGAgYe0hdtVahfCZ1imoG4LbiK8" />
+    <title>Guanxing Lu | 卢冠行</title>
     <style>
         body { margin: 0; }
         canvas { display: block; }
@@ -14,9 +15,334 @@
             font-family: Arial, sans-serif;
             z-index: 100;
         }
+        
+        /* Add new styles for navigation */
+        #navigation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-button {
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        .nav-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* Update styles for social icons to be centered */
+        .social-icons {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 100;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+        
+        /* Content sections */
+        .content-section {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 99;
+            line-height: 1.6;
+        }
+        
+        .content-section h2 {
+            margin-bottom: 25px;
+        }
+        
+        .content-section h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+        
+        /* Link styles from index_old.html */
+        a {
+            text-decoration: none;
+            color: #1772d0;
+        }
+        
+        a:focus, a:hover {
+            color: #f09228;
+        }
+        
+        /* Publication styling */
+        .publication {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .publication-thumbnail {
+            width: 150px;  /* Fixed width */
+            min-height: 100px;  /* Minimum height */
+            max-height: 150px; /* Maximum height */
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;  /* Added margin to move thumbnails slightly down */
+        }
+        
+        .publication-thumbnail video {
+            width: 100%;
+            height: 150px;  /* Fixed height for videos */
+            object-fit: cover;
+        }
+        
+        .publication-thumbnail img {
+            width: 100%;
+            height: auto;  /* Auto height for images */
+            display: block;
+        }
+        
+        .publication-content {
+            flex: 1;
+        }
+        
+        .publication-content h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        
+        .publication-content p {
+            margin: 8px 0;
+            line-height: 1.4;
+        }
+        
+        .publication.highlight {
+            background: linear-gradient(to right, rgba(240, 248, 255, 0.8), rgba(255, 255, 255, 0.9));
+            margin: 0 -20px 30px -20px;  /* Negative margin to align with container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .publication.highlight:hover {
+            background: linear-gradient(to right, rgba(230, 240, 255, 0.9), rgba(255, 255, 255, 0.95));
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Profile section styling */
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+        }
     </style>
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <meta name="author" content="GuanXing Lu | 卢冠行">
+    <link rel="icon" href="images/lgx_icon_low.png">
 </head>
 <body>
+    <!-- Add social icons -->
+    <div class="social-icons">
+        <a href="https://github.com/GuanxingLu" class="social-icon" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=b9n4SrMAAAAJ&hl=en&oi=ao" class="social-icon" target="_blank">
+            <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://x.com/gxlu02" class="social-icon" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/guanxing-lu-0402552a6/" class="social-icon" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/644a1a3600000000100257e8" class="social-icon" target="_blank">
+            <i class="fas fa-book-open"></i>
+        </a>
+        <a href="https://www.zhihu.com/people/lu-guan-xing-81" class="social-icon" target="_blank">
+            <i class="fab fa-zhihu"></i>
+        </a>
+        <a href="mailto:lgx23@mails.tsinghua.edu.cn" class="social-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <div id="navigation">
+        <button class="nav-button" data-section="about">About Me</button>
+        <button class="nav-button" data-section="papers">Papers</button>
+        <button class="nav-button" data-section="misc">Misc</button>
+    </div>
+    
+    <div id="about" class="content-section">
+        <h2>About Me</h2>
+        <img src="images/DSC00622.jpg" alt="Guanxing Lu" class="profile-image">
+        <p style="text-align: center; color: #666; font-style: italic; margin-top: -10px; margin-bottom: 20px;">
+            Taken in Shenzhen, 2024.
+        </p>
+        <p>Hello! I am a Master's student at <a href="https://www.sigs.tsinghua.edu.cn/">Tsinghua University Shenzhen International Graduate School</a>, <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>. 
+            I am fortunate to be supervised by Prof. <a href="https://andytang15.github.io/">Yansong Tang</a> in <a href="http://ivg.au.tsinghua.edu.cn/">IVG@SZ</a> group and Dr. <a href="https://ziweiwangthu.github.io/">Ziwei Wang</a> from CMU. 
+            I am currently working at General Vision Lab in <a href="https://www.bigai.ai/">BIGAI</a> as a research intern advised by <a href="https://buzz-beater.github.io/">Dr. Baoxiong Jia</a> and <a href="https://siyuanhuang.com/">Dr. Siyuan Huang</a>.
+            I received my bachelor's degree in <a href="https://wjx.seu.edu.cn/">Chien-Shiung Wu College</a> from <a href="https://www.seu.edu.cn/">Southeast University</a>, where I was a member of <a href="http://palm.seu.edu.cn/">PALM</a> lab and advised by Prof. <a href="https://jyh-learning.github.io/">Yuheng Jia</a> and Prof. <a href="https://sites.google.com/site/junhuihoushomepage/biography">Junhui Hou</a>.
+        </p>
+        <p>
+            My research passion is on <strong>"building end-to-end general agent for navigation and manipulation"</strong>. If you would like to chat about life or research ideas on 3D vision/robotics, feel free to contact me, I am always open to these conversations.
+        </p>
+    </div>
+    
+    <div id="papers" class="content-section">
+        <h2>Selected Publications</h2>
+        
+        <!-- AnyBimanual -->
+        <div class="publication highlight">
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/anybimanual_v2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation</h3>
+                <p><strong>Guanxing Lu</strong><sup>*</sup>, Tengbo Yu<sup>*</sup>, Haoyuan Deng, Season Si Chen, Yansong Tang<sup>†</sup>, Ziwei Wang</p>
+                <p><em>Preprint 2024</em></p>
+                <p>
+                    <a href="https://anybimanual.github.io/">project page</a> /
+                    <a href="https://arxiv.org/abs/2412.06779">arxiv</a> /
+                    <a href="https://github.com/TengBoYu01/AnyBimanual">code</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ManiCM -->
+        <div class="publication">
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/manicm.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>ManiCM: Real-time 3D Diffusion Policy via Consistency Model for Robotic Manipulation</h3>
+                <p><strong>Guanxing Lu</strong><sup>*</sup>, Zifeng Gao<sup>*</sup>, Tianxing Chen, Wenxun Dai, Ziwei Wang, and Yansong Tang</p>
+                <p><em>Preprint 2024</em></p>
+                <p>
+                    <a href="https://manicm-fast.github.io/">project page</a> /
+                    <a href="https://arxiv.org/abs/2406.01586">arxiv</a> /
+                    <a href="https://github.com/ManiCM-fast/ManiCM">code</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ManiGaussian -->
+        <div class="publication highlight">
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/manigaussian.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>ManiGaussian: Dynamic Gaussian Splatting for Multi-task Robotic Manipulation</h3>
+                <p><strong>Guanxing Lu</strong>, Shiyi Zhang, Ziwei Wang, Changliu Liu, Jiwen Lu and Yansong Tang</p>
+                <p><em>ECCV 2024</em></p>
+                <p>
+                    <a href="https://guanxinglu.github.io/ManiGaussian">project page</a> /
+                    <a href="https://arxiv.org/abs/2403.08321">arxiv</a> /
+                    <a href="https://github.com/GuanxingLu/ManiGaussian">code</a> /
+                    <a href="https://zhuanlan.zhihu.com/p/708538384">中文解读</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- ThinkBot -->
+        <div class="publication">
+            <div class="publication-thumbnail">
+                <video muted autoplay loop>
+                    <source src="images/thinkbot.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="publication-content">
+                <h3>ThinkBot: Embodied Instruction Following with Thought Chain Reasoning</h3>
+                <p><strong>Guanxing Lu</strong>, Ziwei Wang, Changliu Liu, Jiwen Lu and Yansong Tang</p>
+                <p><em>ICLR 2025</em></p>
+                <p>
+                    <a href="https://guanxinglu.github.io/thinkbot">project page</a> /
+                    <a href="https://arxiv.org/abs/2312.07062">arxiv</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Semi-Supervised Subspace Clustering -->
+        <div class="publication">
+            <div class="publication-thumbnail">
+                <img src="images/semi-supervised-subspace-clustering.png" alt="Subspace Clustering">
+            </div>
+            <div class="publication-content">
+                <h3>Semi-Supervised Subspace Clustering via Tensor Low-Rank Representation</h3>
+                <p>Yuheng Jia, <strong>Guanxing Lu</strong>, Hui Liu and Junhui Hou</p>
+                <p><em>IEEE TCSVT 2023</em></p>
+                <p>
+                    <a href="https://arxiv.org/pdf/2205.10481">arxiv</a> /
+                    <a href="https://github.com/GuanxingLu/Subspace-Clustering">code</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="misc" class="content-section">
+        <h2>Misc</h2>
+        <ul>
+            <li>🏊️ Swimming: I am a fan of swimming. I have learned four swimming styles by watching videos.</li>
+            <li>📖 Reading: Recently, I enjoy reading sci-fi novels. Looking for book friends in Weread!</li>
+            <li>🎮 Gaming: I like playing games, now Honkai Star Rail and Valorant.</li>
+            <li>🎸 Music: I'm learning bass and piano. I am a fan of rock band.</li>
+        </ul>
+        <p align="center" style="margin-top: 20px; color: #666;">
+            © 2022-2025 <a href="https://guanxinglu.github.io/">Guanxing Lu</a>. Last updated: Feb. 3, 2025.
+        </p>
+        <p style="color: rgba(255, 255, 255, 0.9); text-align: center;">踏平坎坷成大道，斗罢艰险又出发。</p>
+        
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=MXappg0UE7ClwO9AgInzOCgmbdoURVqJuhVxcmHSwxE&w=200&t=tt"></script>
+        </div>
+    </div>
+
     <div id="scoreCounter">Score: 0</div>
     <div id="instructions" style="position: fixed; top: 50px; left: 20px; color: white; font-family: Arial, sans-serif; z-index: 100;">
         Press SPACE to spawn cube<br>
@@ -550,19 +876,53 @@
         textMesh.rotation.y = Math.PI / 4; // Rotate text to face the camera
         scene.add(textMesh);
 
-        // Animate text appearance
+        const messages = [
+            "Hi🤗 I'm Guanxing Lu",
+            "MS at THU@SZ🎓",
+            "I like robots🤖",
+            "I like trial and error🥝",
+            "I like friends🥳",
+            "I believe in miracles."
+        ];
+        let messageIndex = 0;
         let charIndex = 0;
-        const textString = "Hi🤗 I'm Guanxing Lu";
-        const interval = setInterval(() => {
-            if (charIndex <= textString.length) {
-                context.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-                context.fillText(textString.substring(0, charIndex), 10, 60);
-                texture.needsUpdate = true; // Update texture
-                charIndex++;
+        let isDeleting = false;
+
+        function animateText() {
+            const currentMessage = messages[messageIndex];
+            
+            if (isDeleting) {
+                // Deleting text
+                charIndex--;
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillText(currentMessage.substring(0, charIndex), 10, 60);
             } else {
-                clearInterval(interval);
+                // Typing text
+                charIndex++;
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillText(currentMessage.substring(0, charIndex), 10, 60);
             }
-        }, 200); // Adjust typing speed as needed
+            
+            texture.needsUpdate = true;
+            
+            // Change state when reaching end or start of text
+            if (!isDeleting && charIndex === currentMessage.length) {
+                // Pause at the end of typing
+                setTimeout(() => {
+                    isDeleting = true;
+                }, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+            }
+            
+            // Set timing for next frame
+            const delta = isDeleting ? 100 : 200;
+            setTimeout(animateText, delta);
+        }
+
+        // Start the animation
+        animateText();
 
         // Add event listeners for controls
         document.addEventListener('keydown', (event) => {
@@ -608,6 +968,42 @@
         });
 
         animate();
+
+        // Navigation functionality
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Hide all sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Remove active class from all buttons
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Show selected section and activate button
+                const sectionId = button.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.style.display = 'block';
+                    button.classList.add('active');
+                }
+            });
+        });
+        
+        // Close sections when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.content-section') && 
+                !event.target.closest('.nav-button')) {
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+        });
     </script>
 </body>
 </html>
